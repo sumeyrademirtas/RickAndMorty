@@ -19,9 +19,25 @@ class CharactersListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureTableView()
-     
+        title = "Characters"
+
+        let request = Request(
+            endpoint: .character,
+        queryParameters: [URLQueryItem(name: "name", value: "rick"),
+                         URLQueryItem(name: "status", value: "alive")
+                         ]
+        )
         
-    }
+        
+        //name=rick&status=alive
+        print(request.url)
+        
+        Service.shared.execute(request, expecting: Character.self) { result in
+            
+            }
+        }
+        
+    
     
     // MARK: - UI Components
     private let tableView: UITableView = {
@@ -64,7 +80,7 @@ class CharactersListVC: UIViewController {
 extension CharactersListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.images.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,8 +92,8 @@ extension CharactersListVC: UITableViewDelegate, UITableViewDataSource {
 //        let image = self.images[indexPath.row]
 //        cell.configure(with: image, and: indexPath.row.description)
         
-        return cell
-//        return UITableViewCell()
+//        return cell
+        return UITableViewCell()
     }
     
     
