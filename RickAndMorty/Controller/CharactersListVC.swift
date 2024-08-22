@@ -21,20 +21,15 @@ class CharactersListVC: UIViewController {
         self.configureTableView()
         title = "Characters"
 
-        let request = Request(
-            endpoint: .character,
-        queryParameters: [URLQueryItem(name: "name", value: "rick"),
-                         URLQueryItem(name: "status", value: "alive")
-                         ]
-        )
-        
-        
-        //name=rick&status=alive
-        print(request.url)
-        
-        Service.shared.execute(request, expecting: Character.self) { result in
-            
+        Service.shared.execute(.listCharactersRequests, expecting: GetAllCharactersResponse.self) { result in
+            switch result {
+            case .success(let model):
+                print("Total: "+String(model.info.pages))
+                print("Page result count: "+String(model.results.count))
+            case .failure(let error):
+                print(String(describing: error))
             }
+        }
         }
         
     
