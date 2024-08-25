@@ -20,26 +20,16 @@ class CharactersListVC: UIViewController {
         super.viewDidLoad()
         self.configureTableView()
         title = "Characters"
-
-        Service.shared.execute(.listCharactersRequests, expecting: GetAllCharactersResponse.self) { result in
-            switch result {
-            case .success(let model):
-                print("Total: "+String(model.info.pages))
-                print("Page result count: "+String(model.results.count))
-            case .failure(let error):
-                print(String(describing: error))
-            }
-        }
+     
         }
         
-    
     
     // MARK: - UI Components
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemBackground
         tableView.allowsSelection = true
-        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier)
+        tableView.register(CharacterListCell.self, forCellReuseIdentifier: CharacterListCell.identifier)
         return tableView
     }()
     
@@ -67,28 +57,29 @@ class CharactersListVC: UIViewController {
         tableView.dataSource = self
     }
 
-
-
 }
 
 
 extension CharactersListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterListCell.identifier, for: indexPath) as? CharacterListCell else {
             fatalError("The TableView could no dequeue a CustomCell in MainViewController")
         }
         
-//        let image = self.images[indexPath.row]
-//        cell.configure(with: image, and: indexPath.row.description)
-        
-//        return cell
-        return UITableViewCell()
+        let viewModel = RMCharacterListCellViewModel(
+            characterName: "Sumeyra",
+            characterStatus: .alive,
+            characterImageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+
+        cell.configure(with: viewModel)
+        cell.backgroundColor = .systemGreen
+        return cell
     }
     
     
