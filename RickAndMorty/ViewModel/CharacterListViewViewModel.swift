@@ -9,7 +9,14 @@ import UIKit
 
 import Foundation
 
+
+protocol CharacterListViewViewModelDelegate: NSObject {
+    func didLoadInitialCharacters()
+}
+
 final class  CharacterListViewViewModel: NSObject {
+    
+    public weak var delegate: CharacterListViewViewModelDelegate?
     
     var didFetchCharacters: (() -> Void)? // Closure tanımlaması
 
@@ -22,7 +29,7 @@ final class  CharacterListViewViewModel: NSObject {
                     characterStatus: character.status,
                     characterImageUrl: URL(string: character.image))
                 cellViewModels.append(viewModel)
-            } 
+            }
             didFetchCharacters?()
             
         }
@@ -39,6 +46,9 @@ final class  CharacterListViewViewModel: NSObject {
                 print("API Call Success")
                 let results = responseModel.results
                 self?.characters = results
+                DispatchQueue.main.async {
+                    self?.delegate?.didLoadInitialCharacters()
+                }
                 
             case .failure(let error):
                 print(String(describing: error))

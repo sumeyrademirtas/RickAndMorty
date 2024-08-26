@@ -19,6 +19,7 @@ class CharactersListVC: UIViewController {
         super.viewDidLoad()
         configureTableView()
         title = "Characters"
+        viewModel.delegate = self 
 
         // ViewModel'in closure'ını tanımlama
         viewModel.didFetchCharacters = { [weak self] in
@@ -83,5 +84,14 @@ extension CharactersListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("DEBUG: PRINT:", indexPath.row)
+    }
+}
+
+
+extension CharactersListVC: CharacterListViewViewModelDelegate {
+    func didLoadInitialCharacters() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
