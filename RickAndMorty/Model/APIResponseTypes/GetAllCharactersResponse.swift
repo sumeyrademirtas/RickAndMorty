@@ -9,6 +9,9 @@ import Foundation
 
 struct GetAllCharactersResponse: Codable {
     
+    let info: Info
+    let results: [RMCharacter]
+    
     struct Info: Codable {
         let count: Int
         let pages: Int
@@ -16,8 +19,7 @@ struct GetAllCharactersResponse: Codable {
         let prev: String?
     }
     
-    let info: Info
-    let results: [Character]
+
 }
 
     
