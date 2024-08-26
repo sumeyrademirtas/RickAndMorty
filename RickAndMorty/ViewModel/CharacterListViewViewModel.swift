@@ -12,6 +12,9 @@ import Foundation
 
 protocol CharacterListViewViewModelDelegate: NSObject {
     func didLoadInitialCharacters()
+    func didSelectCharacter(_ character: RMCharacter)
+    func rmCharacterListCell(_ cell: CharactersListVC, didSelectCharacter character: RMCharacter)
+
 }
 
 final class  CharacterListViewViewModel: NSObject {
@@ -21,7 +24,7 @@ final class  CharacterListViewViewModel: NSObject {
     var didFetchCharacters: (() -> Void)? // Closure tanımlaması
 
     
-    private var characters: [RMCharacter] = [] {
+    public var characters: [RMCharacter] = [] {
         didSet {
             for character in characters {
                 let viewModel = RMCharacterListCellViewModel(

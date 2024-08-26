@@ -84,11 +84,31 @@ extension CharactersListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("DEBUG: PRINT:", indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let character = viewModel.characters[indexPath.row]
+        viewModel.delegate?.rmCharacterListCell(self, didSelectCharacter: character)
     }
+    
+    
 }
 
 
 extension CharactersListVC: CharacterListViewViewModelDelegate {
+    func rmCharacterListCell(_ cell: CharactersListVC, didSelectCharacter character: RMCharacter) {
+        print("Character cell selected: \(character.name)")
+        let viewModel = CharacterDetailViewViewModel(character: character)
+        let detailVC = CharacterDetailsVC(viewModel: viewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+
+    }
+    
+    func didSelectCharacter(_ character: RMCharacter) {
+        viewModel.delegate?.rmCharacterListCell(self, didSelectCharacter: character)
+    }
+    
+   
+    
     func didLoadInitialCharacters() {
         DispatchQueue.main.async {
             self.tableView.reloadData()

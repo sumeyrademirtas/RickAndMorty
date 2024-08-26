@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol CharacterListCellDelegate: AnyObject {
+    func rmCharacterListCell(_ characterListCell: CharacterListCell,
+                             didSelectCharacter character: Character)
+}
 
 class CharacterListCell: UITableViewCell {
+    
+    public weak var delegate: CharacterListCellDelegate?
 
     static let identifier = "CustomCell"
     

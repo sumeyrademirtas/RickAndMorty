@@ -27,6 +27,8 @@
 		8125A1892C762A2900229ED2 /* GetAllCharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8125A1882C762A2900229ED2 /* GetAllCharactersResponse.swift */; };
 		8125A18B2C77B06300229ED2 /* CharacterListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8125A18A2C77B06300229ED2 /* CharacterListViewViewModel.swift */; };
 		8125A18D2C77BBA300229ED2 /* RMCharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8125A18C2C77BBA300229ED2 /* RMCharacterListCellViewModel.swift */; };
+		813206EE2C7C716C00A80F5A /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813206ED2C7C716C00A80F5A /* CharacterDetailView.swift */; };
+		813206F02C7C718B00A80F5A /* CharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813206EF2C7C718B00A80F5A /* CharacterDetailViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		8125A1882C762A2900229ED2 /* GetAllCharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllCharactersResponse.swift; sourceTree = "<group>"; };
 		8125A18A2C77B06300229ED2 /* CharacterListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewViewModel.swift; sourceTree = "<group>"; };
 		8125A18C2C77BBA300229ED2 /* RMCharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterListCellViewModel.swift; sourceTree = "<group>"; };
+		813206ED2C7C716C00A80F5A /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		813206EF2C7C718B00A80F5A /* CharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				8125A16B2C733BAF00229ED2 /* CharacterListCell.swift */,
+				813206ED2C7C716C00A80F5A /* CharacterDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			children = (
 				8125A18A2C77B06300229ED2 /* CharacterListViewViewModel.swift */,
 				8125A18C2C77BBA300229ED2 /* RMCharacterListCellViewModel.swift */,
+				813206EF2C7C718B00A80F5A /* CharacterDetailViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				8125A1892C762A2900229ED2 /* GetAllCharactersResponse.swift in Sources */,
 				8125A14C2C7319FF00229ED2 /* AppDelegate.swift in Sources */,
 				8125A17F2C75C64700229ED2 /* Request.swift in Sources */,
+				813206EE2C7C716C00A80F5A /* CharacterDetailView.swift in Sources */,
 				8125A1742C75C25E00229ED2 /* CharacterStatus.swift in Sources */,
 				8125A1782C75C3C600229ED2 /* Location.swift in Sources */,
 				8125A14E2C7319FF00229ED2 /* SceneDelegate.swift in Sources */,
@@ -258,6 +265,7 @@
 				8125A1702C75C0C200229ED2 /* Origin.swift in Sources */,
 				8125A18B2C77B06300229ED2 /* CharacterListViewViewModel.swift in Sources */,
 				8125A1762C75C31E00229ED2 /* CharacterGender.swift in Sources */,
+				813206F02C7C718B00A80F5A /* CharacterDetailViewViewModel.swift in Sources */,
 				8125A1812C75C6BD00229ED2 /* EndPoint.swift in Sources */,
 				8125A18D2C77BBA300229ED2 /* RMCharacterListCellViewModel.swift in Sources */,
 				8125A1722C75C0CA00229ED2 /* SingleLocation.swift in Sources */,
