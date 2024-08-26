@@ -37,7 +37,7 @@ class CharacterListCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .left
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         label.text = "status"
         return label
     }()
@@ -58,12 +58,16 @@ class CharacterListCell: UITableViewCell {
     private func setupUI() {
         
         self.contentView.addSubview(myImageView)
-        self.contentView.addSubview(nameLabel)
-        self.contentView.addSubview(statusLabel)
         
+        let stack = UIStackView(arrangedSubviews: [nameLabel, statusLabel])
+        stack.distribution = .fillEqually
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.alignment = .leading
+        addSubview(stack)
+
         myImageView.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        stack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
           
@@ -72,14 +76,11 @@ class CharacterListCell: UITableViewCell {
             myImageView.leadingAnchor.constraint(equalTo: self.contentView.layoutMarginsGuide.leadingAnchor),
             myImageView.widthAnchor.constraint(equalToConstant: 60),
             
-            nameLabel.leadingAnchor.constraint(equalTo: self.myImageView.trailingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8),
-            nameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+
             
-            statusLabel.leadingAnchor.constraint(equalTo: self.myImageView.trailingAnchor, constant: 16),
-            statusLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8),
-            statusLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.contentView.topAnchor, multiplier: 6)
+            stack.leadingAnchor.constraint(equalTo: self.myImageView.trailingAnchor, constant: 16),
+            stack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -8),
+            stack.topAnchor.constraint(equalToSystemSpacingBelow: self.contentView.topAnchor, multiplier: 2)        
         ])
 
     }
@@ -110,3 +111,5 @@ class CharacterListCell: UITableViewCell {
     }
     
 }
+
+
