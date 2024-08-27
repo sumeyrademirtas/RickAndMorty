@@ -31,6 +31,7 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.contentMode = .scaleAspectFit
         icon.layer.masksToBounds = true
+
         return icon
     }()
     
