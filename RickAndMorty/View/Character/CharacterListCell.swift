@@ -24,6 +24,8 @@ class CharacterListCell: UITableViewCell {
        
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
         
     }()

@@ -35,6 +35,7 @@
 		813206FB2C7DAD6600A80F5A /* CharacterPhotoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813206FA2C7DAD6600A80F5A /* CharacterPhotoCollectionViewCellViewModel.swift */; };
 		813206FD2C7DAD7700A80F5A /* CharacterInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813206FC2C7DAD7700A80F5A /* CharacterInfoCollectionViewCellViewModel.swift */; };
 		813206FF2C7DAD8600A80F5A /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813206FE2C7DAD8600A80F5A /* CharacterEpisodeCollectionViewCellViewModel.swift */; };
+		813207022C7DC46E00A80F5A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813207012C7DC46E00A80F5A /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		813206FA2C7DAD6600A80F5A /* CharacterPhotoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPhotoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		813206FC2C7DAD7700A80F5A /* CharacterInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		813206FE2C7DAD8600A80F5A /* CharacterEpisodeCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		813207012C7DC46E00A80F5A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		8125A14A2C7319FF00229ED2 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				813207002C7DC45E00A80F5A /* Managers */,
 				8125A17B2C75C63200229ED2 /* API */,
 				8125A1642C731CE100229ED2 /* Model */,
 				8125A1632C731CD100229ED2 /* ViewModel */,
@@ -221,6 +224,14 @@
 			path = CharacterDetail;
 			sourceTree = "<group>";
 		};
+		813207002C7DC45E00A80F5A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				813207012C7DC46E00A80F5A /* ImageLoader.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +307,7 @@
 				813206F82C7DAD1C00A80F5A /* CharacterEpisodeCollectionViewCell.swift in Sources */,
 				8125A14C2C7319FF00229ED2 /* AppDelegate.swift in Sources */,
 				8125A17F2C75C64700229ED2 /* Request.swift in Sources */,
+				813207022C7DC46E00A80F5A /* ImageLoader.swift in Sources */,
 				813206EE2C7C716C00A80F5A /* CharacterDetailView.swift in Sources */,
 				8125A1742C75C25E00229ED2 /* CharacterStatus.swift in Sources */,
 				8125A1782C75C3C600229ED2 /* Location.swift in Sources */,
