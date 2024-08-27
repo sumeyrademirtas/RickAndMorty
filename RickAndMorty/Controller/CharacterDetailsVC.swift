@@ -101,7 +101,8 @@ extension CharacterDetailsVC: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterEpisodeCollectionViewCell.cellIdentifier, for: indexPath) as? CharacterEpisodeCollectionViewCell else {
                 fatalError()
             }
-            cell.configure(with: viewModels[indexPath.row])
+            let viewModel = viewModels[indexPath.row]
+            cell.configure(with: viewModel)
 
             return cell
             
