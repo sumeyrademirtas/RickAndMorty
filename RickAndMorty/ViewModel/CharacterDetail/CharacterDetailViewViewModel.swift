@@ -8,7 +8,6 @@
 import UIKit
 
 final class CharacterDetailViewViewModel {
-    
     private let character: RMCharacter
     
     enum SectionType {
@@ -17,7 +16,7 @@ final class CharacterDetailViewViewModel {
         case episodes(viewModels: [CharacterEpisodeCollectionViewCellViewModel])
     }
     
-    public var sections : [SectionType] = []
+    public var sections: [SectionType] = []
     
     // MARK: - Init
     
@@ -27,22 +26,21 @@ final class CharacterDetailViewViewModel {
     }
     
     private func setUpSections() {
- 
         sections = [
             .photo(viewModel: .init(imageUrl: URL(string: character.image))),
             .information(viewModels: [
-                .init(value: character.status.text, title: "Status"),
-                .init(value: character.gender.rawValue, title: "Gender"),
-                .init(value: character.type, title: "Type"),
-                .init(value: character.species, title: "Species"),
-                .init(value: character.origin.name, title: "Origin"),
-                .init(value: character.location.name, title: "Location"),
-                .init(value: character.created, title: "Created"),
-                .init(value: "\(character.episode.count)", title: "Total Episodes")
+                .init(type: .status, value: character.status.text),
+                .init(type: .gender, value: character.gender.rawValue),
+                .init(type: .type, value: character.type),
+                .init(type: .species, value: character.species),
+                .init(type: .origin, value: character.origin.name),
+                .init(type: .location, value: character.location.name),
+                .init(type: .created, value: character.created),
+                .init(type: .episodeCount, value: "\(character.episode.count)")
             ]),
-                .episodes(viewModels: character.episode.compactMap ({
-                    return CharacterEpisodeCollectionViewCellViewModel(episodeDataUrl: URL(string: $0))
-                }))
+            .episodes(viewModels: character.episode.compactMap {
+                CharacterEpisodeCollectionViewCellViewModel(episodeDataUrl: URL(string: $0))
+            })
         ]
     }
     
@@ -53,9 +51,6 @@ final class CharacterDetailViewViewModel {
     public var title: String {
         character.name.uppercased()
     }
-    
-
-    
     
     // MARK: - Layouts
     
@@ -95,6 +90,4 @@ final class CharacterDetailViewViewModel {
         
         return section
     }
-    
-
 }
